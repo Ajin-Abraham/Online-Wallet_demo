@@ -1,2 +1,1 @@
-def login():
-    print(login)
+import _tkinter
