@@ -22,6 +22,10 @@ UnameLabel = Label(mainFrame, text="UserName",
 UnameLabel.config(font=('Helvatical bold', 28))
 UnameLabel.place(x=250, y=250)
 
+unameField = Entry(mainFrame, font=('Helvatical bold', 20), background="#334756",
+                   foreground="#F7F6F2").place(x=500, y=250, height=50, width=200)
+
+
 # passWord style config
 pic2 = PhotoImage(file="photos\\Password_pic.png")
 ppic = Label(image=pic2, background="#212121").place(x=185, y=365)
