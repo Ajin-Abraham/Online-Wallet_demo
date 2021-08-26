@@ -48,8 +48,8 @@ if __name__ == "__main__":
     passField = Entry(frame, font=('Helvatical bold', 30), show="*", background="#D3D3D3",
                       foreground="#E5FBB8").place(x=200, y=360, height=50, width=250)
 
-    submitButton = Button(frame, text='Sumbit',
-                          background='#BFA2DB', height=5, width=20)
-    submitButton.place(x=255, y=450)
+    submitButton = Button(frame, text='Sumbit', font=('Bahnschrift SemiBold', 20),
+                          background='#BFA2DB', height=1, width=10)
+    submitButton.place(x=250, y=450)
 
     mainFrame.mainloop()
