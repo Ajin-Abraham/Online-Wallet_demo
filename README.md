@@ -8,3 +8,4 @@
 
 # Install this In pc
 pip install psycopg2
+using terminal
