@@ -2,9 +2,7 @@ import psycopg2
 from tkinter import *
 from tkinter import messagebox
 from tkinter import font
-
-username = ""
-password = ""
+from Menu import menu
 
 
 def auth():
@@ -46,6 +44,7 @@ def auth():
                 messagebox.showinfo(
                     "Success", "               Welcome               ")
                 mainFrame.destroy()
+                menu(username)
             conn.commit()
 
         except Exception as e:
