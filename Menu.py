@@ -37,8 +37,7 @@ def menu(uname):
                         background='#F5F5F5', height=150, width=150)
     exitButton.place(x=370, y=450)
 
-    #=================Labels==============#
-    menuFrame.mainloop
+    menuFrame.mainloop()
 
 
 def main(username):

@@ -1,7 +1,6 @@
 import psycopg2
 from tkinter import *
 from tkinter import messagebox
-from tkinter import font
 from Menu import menu
 
 
