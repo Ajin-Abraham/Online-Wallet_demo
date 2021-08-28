@@ -37,6 +37,25 @@ def menu(uname):
                         background='#F5F5F5', height=150, width=150)
     exitButton.place(x=370, y=450)
 
+    #++++++++++++Label config+++++++++++#
+    wLabel = Label(menuFrame, text="WITHDRAW",
+                   background="#F5F5F5", foreground="#000000")
+    wLabel.config(font=('Arial Narrow', 23))
+    wLabel.place(x=140, y=320, width=157)
+
+    dLabel = Label(menuFrame, text="DEPOSIT",
+                   background="#F5F5F5", foreground="#000000")
+    dLabel.config(font=('Arial Narrow', 23))
+    dLabel.place(x=370, y=320, width=157)
+    bLabel = Label(menuFrame, text="BALANCE",
+                   background="#F5F5F5", foreground="#000000")
+    bLabel.config(font=('Arial Narrow', 23))
+    bLabel.place(x=140, y=620, width=157)
+    eLabel = Label(menuFrame, text="EXIT",
+                   background="#F5F5F5", foreground="#000000")
+    eLabel.config(font=('Arial Narrow', 23))
+    eLabel.place(x=370, y=620, width=157)
+
     menuFrame.mainloop()
 
 
