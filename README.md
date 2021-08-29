@@ -1,7 +1,8 @@
 # Online Wallet
 ######  WORK INFO :
- ###### :point_right: Login Page (done)
- ###### :point_right: Menu (gui ongoing)
+ ###### :point_right: Login Page
+ ###### :point_right: Menu (Done)
+ ###### :point_right: RegisterPage (gui Done)
 
 
 # Install in pc
