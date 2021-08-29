@@ -25,4 +25,4 @@ using terminal
 #### :point_right:  DatabaseUsername :  euwpundj
 #### :point_right:  DatabasePassword :  7qn7J2u4TvroHViI889U2pMnOopIr1S1
 #### :point_right:      DatabaseHost : rosie.db.elephantsql.com
-#### :point_right:       DatabsePort : 54332
+#### :point_right:       DatabsePort : 5432
