@@ -6,7 +6,7 @@ def menu(uname):
     menuFrame = Tk()
     menuFrame.config(background="#D8A7B1")
     menuFrame.geometry("700x700")
-    menuFrame.title("FiT wallet")
+    menuFrame.title("FiTbank")
     menuFrame.resizable(0, 0)
 
     pic0 = PhotoImage(file="photos\\Tab_icon.png")
@@ -22,6 +22,8 @@ def menu(uname):
     pic2 = PhotoImage(file="photos\\deposit.png")
     pic3 = PhotoImage(file="photos\\balance.png")
     pic4 = PhotoImage(file="photos\\exit.png")
+
+    #----------Method-----------#
 
     #++++++++++BUTTONS++++++++++#
     withdrawButton = Button(menuFrame, text='WITHDRAWAL', image=pic1,
