@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 #**********our package**********#
 from Menu import menu
-from registerageAuth import registerDb
+from registerAuth import registerDb
 
 
 def gotoLoginPage():
@@ -151,6 +151,10 @@ def passtoRegisterAuth():
     if (username == ""):
         messagebox.showerror(
             "Error !", "Please Enter Username")
+    if(age < 18):
+        messagebox.showerror(
+            "Error !", "You are not eligable")
+        flag = True
     if (password == ""):
         messagebox.showerror(
             "Error !", "Please Enter Password")
