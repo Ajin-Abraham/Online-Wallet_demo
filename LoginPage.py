@@ -114,11 +114,11 @@ def main():
     # textField Config
     global unameField
     unameField = Entry(frame, font=('Helvatical bold', 20), background="#D3D3D3",
-                       foreground="#BFA2DB")
+                       foreground="#000000")
     unameField.place(x=200, y=250, height=50, width=250)
     global passField
-    passField = Entry(frame, font=('Helvatical bold', 30), show="*", background="#D3D3D3",
-                      foreground="#E5FBB8")
+    passField = Entry(frame, font=('Helvatical bold', 30), show="•", background="#D3D3D3",
+                      foreground="#000000")
     passField.place(x=200, y=360, height=50, width=250)
 
     signinButton = Button(frame, text='Sign in', font=('Bahnschrift SemiBold', 20),
@@ -138,41 +138,49 @@ def main():
 
 
 def passtoRegisterAuth():
-    flag = False
     username = rF1.get()
     flag = True
     email = rF3.get()
     age = rF2.get()
-    age = int(age)
     ph = rF4.get()
     password = rF5.get()
     password2 = rF6.get()
     # $$$$$$$conditionCheck for register
+
     if (username == ""):
         messagebox.showerror(
             "Error !", "Please Enter Username")
-    if(age < 18):
+        registerFrame.destroy()
+        main()
+    if(age == ""):
         messagebox.showerror(
-            "Error !", "You are not eligable")
-        flag = True
+            "Error !", "Enter your age")
+        registerFrame.destroy()
+        main()
+    if(age != ""):
+        if(int(age) < 18):
+            messagebox.showerror(
+                "Error !", "You are not eligable for account")
+            registerFrame.destroy()
+            main()
+
     if (password == ""):
         messagebox.showerror(
             "Error !", "Please Enter Password")
-        flag = True
+        registerFrame.destroy()
+        main()
     if(password != password2):
         messagebox.showerror(
             "Error !", "Please Enter valid Password")
-        flag = True
+        registerFrame.destroy()
+        main()
 
-    if flag == False:
-        check = registerDb(username, email,
-                           age, ph, password)
-        check = int(check)
-        if(check == 1):
-            registerFrame.destroy()
-            main()
-    else:
-        pass
+    check = registerDb(username, email,
+                       int(age), ph, password)
+    check = int(check)
+    if(check == 1):
+        registerFrame.destroy()
+        main()
 
 
 def registerMain():
@@ -199,7 +207,7 @@ def registerMain():
     textLabel3.place(x=15, y=140,)
 
     #======================LABELS============#
-    Label1 = Label(registerFrame, text="Name:",
+    Label1 = Label(registerFrame, text="Username:",
                    background='#D8A7B1', foreground="#000000")
     Label1.config(font=('Bahnschrift SemiBold', 30))
     Label1.place(x=15, y=190)
@@ -252,7 +260,7 @@ def registerMain():
                 foreground="#000000")
     rF4.place(x=890, y=295, height=50, width=250)
 
-    rF5 = Entry(registerFrame, font=('Helvatical bold', 20), background="#FFFFFF",
+    rF5 = Entry(registerFrame, font=('Helvatical bold', 20), background="#FFFFFF", show="•",
                 foreground="#000000")
     rF5.place(x=225, y=390, height=50, width=250)
 
