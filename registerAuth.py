@@ -18,10 +18,11 @@ def registerDb(username, email, age, ph, password):
         cur = conn.cursor()
         cur.execute(
             "insert into details(username,email,age,ph,password) values (%s,%s,%s,%s,%s);", (username, email, age, ph, password))
+        cur.execute(
+            "insert into cash(username,money) values (%s,%s);", (username, 0))
         conn.commit()
         cur.close()
         conn.close()
-        print("done")
         return 1
 
     except Exception as e:

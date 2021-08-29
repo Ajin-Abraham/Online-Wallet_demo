@@ -2,18 +2,17 @@ import psycopg2
 from tkinter import *
 from tkinter import messagebox
 #**********our package**********#
-from Menu import menu
 from registerAuth import registerDb
 
 
-def gotoLoginPage():
+def gotoLoginPage0():
     registerFrame.destroy()
-    main()
+    loginpageMain()
 
 
 def gotoRegister():
     mainFrame.destroy()
-    registerMain()
+    registerloginpageMain()
 
 
 def auth():
@@ -67,7 +66,7 @@ def auth():
             conn.close()
 
 
-def main():
+def loginpageMain():
     global mainFrame
     mainFrame = Tk()
     mainFrame.config(background="#D8A7B1")
@@ -151,39 +150,39 @@ def passtoRegisterAuth():
         messagebox.showerror(
             "Error !", "Please Enter Username")
         registerFrame.destroy()
-        main()
+        loginpageMain()
     if(age == ""):
         messagebox.showerror(
             "Error !", "Enter your age")
         registerFrame.destroy()
-        main()
+        loginpageMain()
     if(age != ""):
         if(int(age) < 18):
             messagebox.showerror(
                 "Error !", "You are not eligable for account")
             registerFrame.destroy()
-            main()
+            loginpageMain()
 
     if (password == ""):
         messagebox.showerror(
             "Error !", "Please Enter Password")
         registerFrame.destroy()
-        main()
+        loginpageMain()
     if(password != password2):
         messagebox.showerror(
             "Error !", "Please Enter valid Password")
         registerFrame.destroy()
-        main()
+        loginpageMain()
 
     check = registerDb(username, email,
                        int(age), ph, password)
     check = int(check)
     if(check == 1):
         registerFrame.destroy()
-        main()
+        loginpageMain()
 
 
-def registerMain():
+def registerloginpageMain():
     global registerFrame
     registerFrame = Tk()
     registerFrame.config(background="#D8A7B1")
@@ -275,12 +274,78 @@ def registerMain():
     submitButton.place(x=450, y=480)
 
     returnButton = Button(registerFrame, image=pic1,
-                          background='#BFA2DB', height=45, width=100, command=gotoLoginPage)
+                          background='#BFA2DB', height=45, width=100, command=gotoLoginPage0)
     returnButton.place(x=50, y=550)
 
     registerFrame.mainloop()
 
 
-main()
+def gotoLoginPage1():
+    menuFrame.destroy()
+    loginpageMain()
 
-# hello
+
+def menu(uname):
+    #=====mainFrame config=======#
+    global menuFrame
+    menuFrame = Tk()
+    menuFrame.config(background="#D8A7B1")
+    menuFrame.geometry("700x700")
+    menuFrame.title("FiTbank")
+    menuFrame.resizable(0, 0)
+
+    pic0 = PhotoImage(file="photos\\Tab_icon.png")
+    menuFrame.iconphoto(True, pic0)
+    header = f'Welcome Back ,{uname}'
+    headerLabel = Label(menuFrame, text=header,
+                        background="#DEDEDE", foreground="#000000")
+    headerLabel.config(font=('Bahnschrift', 32))
+    headerLabel.place(x=0, y=20)
+
+    #____________pictures_________#
+    pic1 = PhotoImage(file="photos\\withdrawal.png")
+    pic2 = PhotoImage(file="photos\\deposit.png")
+    pic3 = PhotoImage(file="photos\\balance.png")
+    pic4 = PhotoImage(file="photos\\exit.png")
+
+    #----------Method-----------#
+
+    #++++++++++BUTTONS++++++++++#
+    withdrawButton = Button(menuFrame, text='WITHDRAWAL', image=pic1,
+                            background='#F5F5F5', height=150, width=150)
+    withdrawButton.place(x=140, y=150)
+    depositButton = Button(menuFrame, text='deposit', image=pic2,
+                           background='#F5F5F5', height=150, width=150)
+    depositButton.place(x=370, y=150)
+    balanceButton = Button(menuFrame, text='deposit', image=pic3,
+                           background='#F5F5F5', height=150, width=150)
+    balanceButton.place(x=140, y=450)
+    exitButton = Button(menuFrame, text='deposit', image=pic4,
+                        background='#F5F5F5', height=150, width=150, command=gotoLoginPage1)
+    exitButton.place(x=370, y=450)
+
+    #++++++++++++Label config+++++++++++#
+    wLabel = Label(menuFrame, text="WITHDRAW",
+                   background="#F5F5F5", foreground="#000000")
+    wLabel.config(font=('Arial Narrow', 23))
+    wLabel.place(x=140, y=320, width=157)
+
+    dLabel = Label(menuFrame, text="DEPOSIT",
+                   background="#F5F5F5", foreground="#000000")
+    dLabel.config(font=('Arial Narrow', 23))
+    dLabel.place(x=370, y=320, width=157)
+    bLabel = Label(menuFrame, text="BALANCE",
+                   background="#F5F5F5", foreground="#000000")
+    bLabel.config(font=('Arial Narrow', 23))
+    bLabel.place(x=140, y=620, width=157)
+    eLabel = Label(menuFrame, text="EXIT",
+                   background="#F5F5F5", foreground="#000000")
+    eLabel.config(font=('Arial Narrow', 23))
+    eLabel.place(x=370, y=620, width=157)
+
+    menuFrame.mainloop()
+
+
+loginpageMain()
+
+#
